@@ -35,6 +35,7 @@
   "now": {
     "env": {
       "ELASTICSEARCH_URL": "@elasticsearch_url"
-    }
+    },
+    "alias": "tfk-ansattesok-backend.vpdev.no"
   }
 }
