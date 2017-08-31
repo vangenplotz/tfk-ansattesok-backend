@@ -31,11 +31,5 @@
     "babel-register": "^6.26.0",
     "nodemon": "^1.11.0",
     "tap": "^10.7.2"
-  },
-  "now": {
-    "env": {
-      "ELASTICSEARCH_URL": "@elasticsearch_url"
-    },
-    "alias": "tfk-ansattesok-backend.vpdev.no"
   }
 }
