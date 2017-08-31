@@ -4,5 +4,9 @@
     },
     "alias": "tfk-ansattesok-backend.vpdev.no",
     "name": "tfk-ansattesok-backend",
-    "type": "npm"
+    "type": "npm",
+    "files": [
+        "src",
+        "package.json"
+    ]
 }
