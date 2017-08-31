@@ -52,11 +52,8 @@ export const findByFullName = async (needle, from = 0, size = 100) => {
 			...baseQuery,
 			body: {
 				query: {
-					match: {
-						fullName: {
-							query: needle,
-							fuzziness: 'AUTO'
-						}
+					regexp: {
+						fullName: `.*${needle.toLowerCase()}.*`
 					}
 				},
 				from,

@@ -42,15 +42,15 @@ const createMapping = async () => {
 						type: 'nested'
 					},
 					fullName: {
-						type: 'string'
+						type: 'keyword'
 					},
 					givenName: {
 						type: 'string',
-						copy_to: 'fullName'
+					//	copy_to: 'fullName'
 					},
 					familyName: {
 						type: 'string',
-						copy_to: 'fullName'
+					//	copy_to: 'fullName'
 					}
 				}
 			}
@@ -75,7 +75,7 @@ const getBulkDataInput = (data) => {
 		departments = { ...departments, ...getDepartments(currentItem.positions)};
 		accumulator.push({ index: { _index: index, _type: 'person', _id: currentItem.personId }});
 		const { personId, ...person } = currentItem;
-		accumulator.push(person);
+		accumulator.push({ ...person, fullName: `${person.givenName} ${person.familyName}`.toLowerCase()});
 		return accumulator;
 	}, []);
 
