@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/vangenplotz/tfk-ansattesok-backend.svg?branch=master)](https://travis-ci.org/vangenplotz/tfk-ansattesok-backend)
 # Telemark Fylkeskommune, API
 
 ## Development
