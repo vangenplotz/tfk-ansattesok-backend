@@ -4,10 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec \"node -r babel-register src/server.js\"",
+    "start": "node dist/server.js",
+    "start:dev": "nodemon --exec \"node -r babel-register src/server.js\"",
     "test": "node -r babel-register ./node_modules/.bin/tap test/*.js",
     "es:seed": "node -r babel-register scripts/elasticsearch/seed.js",
-    "es:clean": "node -r babel-register scripts/elasticsearch/clean.js"
+    "es:clean": "node -r babel-register scripts/elasticsearch/clean.js",
+    "build": "node_modules/.bin/babel src -d dist"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
@@ -29,5 +31,11 @@
     "babel-register": "^6.26.0",
     "nodemon": "^1.11.0",
     "tap": "^10.7.2"
+  },
+  "now": {
+    "env": {
+      "ELASTICSEARCH_URL": "@elasticsearch_url"
+    },
+    "alias": "tfk-ansattesok-backend.vpdev.no"
   }
 }
