@@ -13,4 +13,4 @@ install:
 - yarn install
 script:
 - now --token=${NOW_TOKEN} --no-clipboard
-- now alias
+- now --token=${NOW_TOKEN} alias
