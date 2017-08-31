@@ -7,6 +7,7 @@
     "type": "npm",
     "files": [
         "src",
-        "package.json"
+        "package.json",
+        "now.json"
     ]
 }
