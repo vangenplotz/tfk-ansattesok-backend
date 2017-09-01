@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/vangenplotz/tfk-ansattesok-backend.svg?branch=master)](https://travis-ci.org/vangenplotz/tfk-ansattesok-backend)
 # Telemark Fylkeskommune, API
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-backend.svg)](https://greenkeeper.io/)
+
 ## Development
 ### Info
 Unless stated otherwise, all terminal commands are expected to be executed from the project root.
