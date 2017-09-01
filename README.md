@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/vangenplotz/tfk-ansattesok-backend.svg?branch=master)](https://travis-ci.org/vangenplotz/tfk-ansattesok-backend)
+[![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-backend.svg)](https://greenkeeper.io/)
+
 # Telemark Fylkeskommune, API
 
 ## Development
