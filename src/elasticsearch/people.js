@@ -8,13 +8,72 @@ const baseQuery = {
 	type
 };
 
+const buildNestedQuery = (params) => {
+	const must = [];
+	if (params['departmentIds'] && params['departmentIds'].split(',').length > 0) {
+		must.push({ terms: { 'positions.departmentId.keyword': params['departmentIds'].split(',')}});
+	}
+	if (params['partTime'] === params['fullTime']) {
+		return must;
+	}
+	if (JSON.parse(params['partTime'])) {
+		must.push({ term: { 'positions.type.keyword': 'Vikar'}})
+	}
+	if (JSON.parse(params['fullTime'])) {
+		must.push({ term: { 'positions.type.keyword': 'Fast ansatt'}})
+	}
+	return must;
+};
+
+const buildQuery = (params) => {
+	const must = [];
+	if (!!params['q']) {
+		must.push({ wildcard: { fullName: `*${params['q'].toLowerCase()}*`}})
+	}
+	const nested = {
+		nested: {
+			path: 'positions',
+			query: {
+				bool: {
+					must: buildNestedQuery(params)
+				}
+			}
+		}
+	};
+	must.push(nested);
+	return must;
+};
+
+export const findAllByParams = async (params, from = 0, size = 100) => {
+	try {
+		const response = await client.search({
+			...baseQuery,
+			body: {
+				query: {
+					bool: {
+						must: buildQuery(params)
+					}
+				},
+				from,
+				size
+			}
+		});
+		return createResponse(response);
+	} catch (error) {
+		return [];
+	}
+};
+
 export const findAll = async (from = 0, size = 100) => {
 	try {
 		const response = await client.search({
 			...baseQuery,
 			body: {
 				query: {
-					match_all: {}
+					//match_all: {}
+					bool: {
+						must: []
+					}
 				},
 				from,
 				size

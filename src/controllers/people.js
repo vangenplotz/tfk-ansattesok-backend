@@ -4,7 +4,12 @@ const findAll = {
 	method: 'GET',
 	path: '/people',
 	handler: async (req, res) => {
-		if (!req.query['field'] || !req.query['q']) {
+		if (req.query['fullTime'] || req.query['partTime'] || req.query['departmentIds']) {
+			const response = await people.findAllByParams(req.query, req.query['page'], req.query['size']);
+			return res({ people: response.payload })
+					.header('X-TOTAL', response.meta.total)
+					.code(200);
+		} else if (!req.query['field'] || !req.query['q']) {
 			const response = await people.findAll(req.query['page'], req.query['size']);
 			return res({ people: response.payload })
 					.header('X-TOTAL', response.meta.total)
