@@ -3,6 +3,8 @@
 
 # Telemark Fylkeskommune, API
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-backend.svg)](https://greenkeeper.io/)
+
 ## Development
 ### Info
 Unless stated otherwise, all terminal commands are expected to be executed from the project root.
