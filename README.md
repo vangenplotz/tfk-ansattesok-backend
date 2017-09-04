@@ -37,3 +37,6 @@ For å fylle Elasticsearch med data fra `data/ansatte.json`, kjør:
 For å fjerne data fra Elasticsearch, kjør:
 
 `$ docker-compose -p telemark exec api yarn es:clean`
+
+### API Docs
+API docs er tilgjengelig på endepunktet `/documentation`
