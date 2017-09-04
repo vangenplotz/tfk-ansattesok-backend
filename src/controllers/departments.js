@@ -1,8 +1,21 @@
 import * as departments from "../elasticsearch/departments"
+import joi from "joi"
 
 const findAll = {
 	method: 'GET',
 	path: '/departments',
+	config: {
+		description: 'Get a list of departments',
+		tags: ['api'],
+		validate: {
+			query: {
+				field: joi.string(),
+				q: joi.string(),
+				page: joi.number().integer(),
+				size: joi.number().integer()
+			}
+		}
+	},
 	handler: async (req, res) => {
 		if (!req.query['field' || !req.query['q']]) {
 			const response = await departments.findAll(req.query['page'], req.query['size']);
@@ -22,6 +35,15 @@ const findAll = {
 const findById = {
 	method: 'GET',
 	path: '/departments/{id}',
+	config: {
+		description: 'Get a single department',
+		tags: ['api'],
+		validate: {
+			params: {
+				id: joi.number().integer()
+			}
+		}
+	},
 	handler: async (req, res) => {
 		if (!req.params.id) {
 			return res.code(404);
