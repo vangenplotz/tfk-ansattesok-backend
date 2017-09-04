@@ -70,10 +70,7 @@ export const findAll = async (from = 0, size = 100) => {
 			...baseQuery,
 			body: {
 				query: {
-					//match_all: {}
-					bool: {
-						must: []
-					}
+					match_all: {}
 				},
 				from,
 				size
