@@ -46,11 +46,9 @@ const createMapping = async () => {
 					},
 					givenName: {
 						type: 'string',
-					//	copy_to: 'fullName'
 					},
 					familyName: {
 						type: 'string',
-					//	copy_to: 'fullName'
 					}
 				}
 			}
