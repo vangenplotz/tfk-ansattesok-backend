@@ -2,35 +2,37 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/vangenplotz/tfk-ansattesok-backend.svg)](https://greenkeeper.io/)
 
 # Telemark Fylkeskommune, API
+###### Relaterte prosjekter
+[https://github.com/vangenplotz/tfk-ansattesok-frontend](https://github.com/vangenplotz/tfk-ansattesok-frontend)
 
-## Development
-### Info
-Unless stated otherwise, all terminal commands are expected to be executed from the project root.
+## Utvikling
+### Informasjon
+Med mindre annet er spesifisert forventes det at alle terminal-kommandoer kjøres fra roten av prosjektet.
 
-## Prerequisites
-You must have Docker and Docker-Compose installed.
+### Forutsetninger
+For å kunne utvikle løsningen forventes det at man har [Docker](https://docker.com) og [Docker Compose](https://docs.docker.com/compose/) installert.
 
-You must create a file called `.env` in the root directory with the following content
+Det forventes at man har en `.env` fil i roten av prosjektet med følgende innhold:
 
 ```
 ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
 ```
 
-### Installation
+### Installasjon
+Kjør `$ docker-compose -p telemark build` i terminalen for å bygge image(s).
 
-Run `$ docker-compose -p telemark build` in your terminal to build the images.
+**MERK!** Dersom du endrer dependencies i `package.json` må du rebuilde container image(s).
 
-**Note!** If you change dependencies in `package.json` you will need to rebuild the container images.
+### Starte applikasjonen
 
-### Running the application
-
-Run `$ docker-compose -p telemark up` in your terminal to start the application.
+Kjør `$ docker-compose -p telemark up` i terminalen for å starte applikasjonen.
 
 ### Data
 
-To fill Elasticsearch with data, run:
+For å fylle Elasticsearch med data fra `data/ansatte.json`, kjør:
+
 `$ docker-compose -p telemark exec api yarn es:seed`
 
-To clean Elasticsearch, run:
+For å fjerne data fra Elasticsearch, kjør:
 
 `$ docker-compose -p telemark exec api yarn es:clean`
