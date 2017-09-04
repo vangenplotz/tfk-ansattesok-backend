@@ -6,5 +6,4 @@ node_js:
 cache:
   yarn: true
 install:
-- yarn add global now
 - yarn install
