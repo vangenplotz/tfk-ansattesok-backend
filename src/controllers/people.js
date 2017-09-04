@@ -1,24 +1,8 @@
 import * as people from "../elasticsearch/people"
-import joi from "joi"
 
 const findAll = {
 	method: 'GET',
 	path: '/people',
-	config: {
-		description: 'Get a list of people',
-		tags: ['api'],
-		validate: {
-			query: {
-				field: joi.string(),
-				q: joi.string(),
-				page: joi.number().integer(),
-				size: joi.number().integer(),
-				fullTime: joi.boolean(),
-				partTime: joi.boolean(),
-				departmentIds: joi.string().description('Comma-separated string of ids')
-			}
-		}
-	},
 	handler: async (req, res) => {
 		if (req.query['fullTime'] || req.query['partTime'] || req.query['departmentIds']) {
 			const response = await people.findAllByParams(req.query, req.query['page'], req.query['size']);
@@ -54,15 +38,6 @@ const findAll = {
 const findById = {
 	method: 'GET',
 	path: '/people/{id}',
-	config: {
-		description: 'Get a person',
-		tags: ['api'],
-		validate: {
-			params: {
-				id: joi.number().integer()
-			}
-		}
-	},
 	handler: async (req, res) => {
 		if (!req.params.id) {
 			return res().code(400);
@@ -78,15 +53,6 @@ const findById = {
 const findByDepartmentId = {
 	method: 'GET',
 	path: '/departments/{departmentId}/people',
-	config: {
-		description: 'Get a list of people within a department',
-		tags: ['api'],
-		validate: {
-			params: {
-				departmentId: joi.number().integer()
-			}
-		}
-	},
 	handler: async (req, res) => {
 		if (!req.params.departmentId) {
 			return res().code(400);
