@@ -5,12 +5,6 @@ node_js:
 - 8
 cache:
   yarn: true
-env:
-  global:
-    secure: xD8tPwHXPw6HWcXBAyINeYlFps6CAGpGr/Djbev29o2XmfWc8M9c+G6v8vTKCYISBVoWVicLj+iG8kLQl3gx6ybJO6aYPT5RA0oREhHygL1CkfMnp6oQDyMAzA1kUpaLCzLrIysQeX6GcP+lbSqmjX6b6lDJxcP6EjEaUERmNjCVX9ZIY7NjGcmhbCkzuXjxuFFO4jKUmRXwK01louZacXfh44wcBdqF6HOQU7Zd7zmIlwKFRbTwajsDNZFR25uEQ7lVac1oaz0GkYMYZ0X8cByADcKpDzxSKC6n4ac9XymCvtvKBEPPK349GDuGTKwi1waQ2Duo/Hz0MYt+x5jOE546V9IbACHDU7XCy3W5OkZ0mSeLwdIQcCAbFpH5eMCx0pp0nYVA9ZDRS0pvtmkLpM7jgS0y6gebqDMNtam6K5hv07TpN2tJcP/51j4YkhoOlNxCtG4TopUrEkhH3HRo8QjB0Kx3ejGUMbaefxEG2MFYWtUVoCdpPidPpVIlhsUNtpzy4lXFUyw0WjK/3ShILV15dMKedEXbBm23Qud4zV6+HZp0AoxQ++HEeQNO3OjZbNbykz2MOe/88TApWWWDUbCZDa6zPGqx6zthCLjokZOtQvgMy5AS1E3YUJVGnwudhp1RcgQrKMOeoTZq3+SPdSBk71rMG0P7qPmlVJt6khA=
 install:
 - yarn add global now
 - yarn install
-script:
-- now --token=${NOW_TOKEN} --no-clipboard
-- now --token=${NOW_TOKEN} alias
