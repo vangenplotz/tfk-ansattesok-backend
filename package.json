@@ -12,7 +12,7 @@
     "build": "node_modules/.bin/babel src -d dist"
   },
   "dependencies": {
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.1",
     "elasticsearch": "^13.3.1",
     "good": "^7.3.0",
     "good-console": "^6.4.0",
