@@ -30,6 +30,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "nodemon": "^1.11.0",
-    "tap": "^10.7.2"
+    "tap": "^14.10.3"
   }
 }
